@@ -4,6 +4,9 @@
 
 package S_Stack;
 
+/*import java.io.*;
+import java.util.Stack;
+import java.util.Scanner;*/
 import java.util.ArrayList;
 
 public class Stack<T> {
@@ -33,5 +36,30 @@ public class Stack<T> {
         }
         return s;
     }    
-    
+
+  /*public void PushPop(){
+    Stack<String> stack = new Stack<>();
+		
+		try{
+		    File inputFile = new File("LeggiScriviFile.txt");
+		    Scanner scanner = new Scanner(inputFile);
+		    
+		    while(scanner.hasNextLine()){
+		        String line = scanner.nextLine();
+		        stack.push(line);
+		    }
+		    scanner.close();
+		    File outputFile = new File("FileOutput.txt");
+		    FileWriter writer = new FileWriter(outputFile);
+		        
+		    while(!stack.isEmpty()){
+		        writer.write(stack.pop() + "\n");
+		    }
+		    writer.close();
+		    System.out.println("Finito di scrivere sul file di output");
+	    }catch(IOException e){
+	        System.out.println("Errore nella lettura/scrittura dei file");
+	        e.printStackTrace();
+	    }
+    }*/
 }

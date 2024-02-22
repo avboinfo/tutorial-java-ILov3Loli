@@ -44,7 +44,7 @@ public class Stack<T> {
 		    File inputFile = new File("LeggiScriviFile.txt");
 		    Scanner scanner = new Scanner(inputFile);
 		    
-		    while(scanner.hasNextLine()){
+		    if(scanner.hasNextLine()){
 		        String line = scanner.nextLine();
 		        stack.push(line);
 		    }
@@ -52,14 +52,9 @@ public class Stack<T> {
 		    File outputFile = new File("FileOutput.txt");
 		    FileWriter writer = new FileWriter(outputFile);
 		        
-		    while(!stack.isEmpty()){
+		    if(!stack.isEmpty()){
 		        writer.write(stack.pop() + "\n");
 		    }
-		    writer.close();
-		    System.out.println("Finito di scrivere sul file di output");
-	    }catch(IOException e){
-	        System.out.println("Errore nella lettura/scrittura dei file");
-	        e.printStackTrace();
 	    }
     }*/
 }

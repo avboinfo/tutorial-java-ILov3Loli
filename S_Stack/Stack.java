@@ -4,10 +4,11 @@
 
 package S_Stack;
 
-/*import java.io.*;
-import java.util.Stack;
-import java.util.Scanner;*/
+import java.io.*;
+import java.io.File;
+import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.FileNotFoundException;
 
 public class Stack<T> {
     
@@ -16,9 +17,25 @@ public class Stack<T> {
     public Stack() {
         list = new ArrayList<T>();
     }
+
+    public void ScrivoFile(){
+        try{
+            File FileScrivi = new File("InputFile.txt");
+            System.out.println("Scrivi qualcosa");
+            Scanner Testo = new Scanner(FileScrivi);
+            while(Testo.hasNextLine()){
+            String data = Testo.nextLine();
+        }
+        Testo.close();
+        }catch(FileNotFoundException e){
+            System.out.println("Errore!");
+            e.printStackTrace();
+        }
+        return;
+    } 
     
     public void push( T newElement ) {
-        list.add(newElement); 
+        list.add(newElement);
     }
 
     public T pop() {
@@ -36,25 +53,4 @@ public class Stack<T> {
         }
         return s;
     }    
-
-  /*public void PushPop(){
-    Stack<String> stack = new Stack<>();
-		
-		try{
-		    File inputFile = new File("LeggiScriviFile.txt");
-		    Scanner scanner = new Scanner(inputFile);
-		    
-		    if(scanner.hasNextLine()){
-		        String line = scanner.nextLine();
-		        stack.push(line);
-		    }
-		    scanner.close();
-		    File outputFile = new File("FileOutput.txt");
-		    FileWriter writer = new FileWriter(outputFile);
-		        
-		    if(!stack.isEmpty()){
-		        writer.write(stack.pop() + "\n");
-		    }
-	    }
-    }*/
 }

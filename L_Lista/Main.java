@@ -22,7 +22,15 @@ public class Main {
         l.addSorted(new Nodo(290,null));
         l.addSorted(new Nodo(450,null));
 
+        l.addAfter(new Nodo(1,null),2);
+        /*l.removePos(new Nodo(100,null),10);
+        l.removeValue(new Nodo(100,null),11);*/
 
         System.out.println(l);
+
+        Lista.Iteratore iter = l.getIteratore();
+        while(iter.hasNext()){
+            System.out.println(iter.next());
+        }
     }
 }

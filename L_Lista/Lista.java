@@ -2,6 +2,30 @@ package L_Lista;
 
 public class Lista {
     Nodo radice;
+
+    class Iteratore{
+        private Nodo nodo;
+        private Iteratore(Nodo nodo){
+            this.nodo = nodo;
+        }
+        public boolean hasNext(){
+            return nodo != null;
+        }
+        public Nodo next(){
+            if(nodo == null){
+                return null;
+            }
+            //Nodo result = new Nodo(nodo.getValore(), nodo.getSuccessivo());
+            Nodo result = nodo;
+            nodo = nodo.getSuccessivo();
+            return result;
+        }
+    }
+
+    public Iteratore getIteratore(){
+        Iteratore i = new Iteratore(radice);
+        return i;
+    }
     
     public Lista(){
         radice = null;
@@ -64,4 +88,43 @@ public class Lista {
         s += "End!\n";
         return s;
     }
+
+    public boolean addAfter(Nodo n, int pos){
+        Nodo npos=null;
+        Iteratore iter = this.getIteratore(); //aggiunge il nodo n solo dopo aver oltrepassato il nodo di indice pos
+        for(int i=0;i<pos;i++){
+            if(iter.hasNext()){
+                npos = iter.next();
+            }else{
+                return false;
+            }
+        }
+        n.setSuccessivo(npos.getSuccessivo());
+        npos.setSuccessivo(n);
+        return true;
+    }
+
+    /*public boolean removePos(Nodo n, int pos){
+        if(isEmpty()){
+            radice = n;
+            n.setSuccessivo(null);
+            return false;
+        }else{
+            String remove = n.remove(pos);
+            return true;
+        }
+    }
+
+    public boolean removeValue(Nodo n, int value){
+        if(isEmpty()){
+            radice = n;
+            n.setSuccessivo(null);
+            return false;
+        }else{
+            while(n != null && value == ){
+                String remove = n.remove(value);
+            }
+            return true;
+        }
+    }*/
 }
